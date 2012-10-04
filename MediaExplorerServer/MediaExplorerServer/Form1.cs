@@ -87,6 +87,29 @@ namespace MediaExplorerServer
             lblStatus.Text = "Search stopped";
         }
 
+        private void lstMediaFiles_Click(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Process.Start(this.lstMediaFiles.SelectedItems.ToString());
+            string qwe = this.lstMediaFiles.Items[lstMediaFiles.SelectedIndices[0]].Text;
+            System.Diagnostics.Process.Start(qwe);
+        }
+
+        private void lstMediaFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void lstMediaFiles_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void fielToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
