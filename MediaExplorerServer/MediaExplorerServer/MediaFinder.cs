@@ -73,7 +73,7 @@ namespace MediaExplorerServer
                 SearchInDirTree(new System.IO.DirectoryInfo(Environment.GetFolderPath(sd)));
             }
 
-
+            
             foreach (string s in log)
             {
                 //Alla filer som är restricted
