@@ -28,7 +28,7 @@ namespace MediaExplorerServer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //lstMediaFiles.Columns[0].Width = lstMediaFiles.Width;
         }
 
         public void AddFileToList(string name) {

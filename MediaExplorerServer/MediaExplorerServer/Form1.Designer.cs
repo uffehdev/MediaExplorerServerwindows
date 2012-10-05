@@ -34,9 +34,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fielToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchTB = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopTB = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopTB = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,14 +45,20 @@
             this.lstMediaFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.lstMediaFiles.FullRowSelect = true;
+            this.lstMediaFiles.GridLines = true;
             this.lstMediaFiles.Location = new System.Drawing.Point(11, 35);
             this.lstMediaFiles.Margin = new System.Windows.Forms.Padding(2);
             this.lstMediaFiles.Name = "lstMediaFiles";
-            this.lstMediaFiles.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lstMediaFiles.Size = new System.Drawing.Size(513, 330);
             this.lstMediaFiles.TabIndex = 0;
+            this.lstMediaFiles.TileSize = new System.Drawing.Size(300, 50);
             this.lstMediaFiles.UseCompatibleStateImageBehavior = false;
+            this.lstMediaFiles.View = System.Windows.Forms.View.List;
             this.lstMediaFiles.Click += new System.EventHandler(this.lstMediaFiles_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Width = 0;
             // 
             // lblStatus
             // 
@@ -87,29 +93,29 @@
             // searchTB
             // 
             this.searchTB.Name = "searchTB";
-            this.searchTB.Size = new System.Drawing.Size(152, 22);
+            this.searchTB.Size = new System.Drawing.Size(116, 22);
             this.searchTB.Text = "Search";
             this.searchTB.Click += new System.EventHandler(this.searchTB_Click);
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.optionsToolStripMenuItem.Text = "Options";
-            // 
-            // closeToolStripMenuItem
-            // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.closeToolStripMenuItem.Text = "Close";
             // 
             // stopTB
             // 
             this.stopTB.Enabled = false;
             this.stopTB.Name = "stopTB";
-            this.stopTB.Size = new System.Drawing.Size(152, 22);
+            this.stopTB.Size = new System.Drawing.Size(116, 22);
             this.stopTB.Text = "Stop";
             this.stopTB.Click += new System.EventHandler(this.stopTB_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.closeToolStripMenuItem.Text = "Close";
             // 
             // Form1
             // 
