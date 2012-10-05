@@ -31,48 +31,44 @@ namespace MediaExplorerServer
 
         }
 
-        
-
         public void AddFileToList(string name) {
-
-            if (this.lstMediaFiles.InvokeRequired)
-            {
+            if (this.lstMediaFiles.InvokeRequired) {
                 SetTextCallback d = new SetTextCallback(setText);
                 this.Invoke(d, new object[] { name });
-            }
-            else
-            {
+            } else {
                 this.lstMediaFiles.Text = name;
             }
-            
         }
 
         void setText(string txt) {
             this.lstMediaFiles.Items.Add(txt);
         }
 
-        public void UpdateStatusText(string txt)
-        {
+        public void UpdateStatusText(string txt) {
             if (this.lblStatus.InvokeRequired) {
                 SetStatusTextCallback d = new SetStatusTextCallback(updateStatus);
                 this.Invoke(d, new object[] { txt });
-            }
-            else
-            {
+            } else {
                 this.lblStatus.Text = txt;
             }
-
         }
+
         void updateStatus(string txt) {
             this.lblStatus.Text = txt;
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void searchTB_Click(object sender, EventArgs e)
         {
             this.lstMediaFiles.Items.Clear();
-            this.btnStop.Enabled = true;
-            string[] strArr = new string[] { @"E:\HemLaddning\Download" };
+            this.stopTB.Enabled = true;
             mediaFinder.StartSearch();
+        }
+
+        private void stopTB_Click(object sender, EventArgs e)
+        {
+            mediaFinder.EndSearch();
+            this.stopTB.Enabled = false;
+            lblStatus.Text = "Search stopped";
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -80,35 +76,13 @@ namespace MediaExplorerServer
             mediaFinder.EndSearch();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            mediaFinder.EndSearch();
-            this.btnStop.Enabled = false;
-            lblStatus.Text = "Search stopped";
-        }
-
         private void lstMediaFiles_Click(object sender, EventArgs e)
         {
-            //System.Diagnostics.Process.Start(this.lstMediaFiles.SelectedItems.ToString());
             string qwe = this.lstMediaFiles.Items[lstMediaFiles.SelectedIndices[0]].Text;
             System.Diagnostics.Process.Start(qwe);
         }
 
-        private void lstMediaFiles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-            
-        }
-
-        private void lstMediaFiles_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            
-        }
-
-        private void fielToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
 
     }

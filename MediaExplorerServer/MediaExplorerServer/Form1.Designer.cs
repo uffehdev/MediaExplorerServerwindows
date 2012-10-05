@@ -30,14 +30,13 @@
         {
             this.lstMediaFiles = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.btnStop = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fielToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchTB = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopTB = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,28 +46,13 @@
             this.columnHeader1});
             this.lstMediaFiles.FullRowSelect = true;
             this.lstMediaFiles.Location = new System.Drawing.Point(11, 35);
-            this.lstMediaFiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstMediaFiles.Margin = new System.Windows.Forms.Padding(2);
             this.lstMediaFiles.Name = "lstMediaFiles";
             this.lstMediaFiles.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lstMediaFiles.Size = new System.Drawing.Size(513, 330);
             this.lstMediaFiles.TabIndex = 0;
             this.lstMediaFiles.UseCompatibleStateImageBehavior = false;
-            this.lstMediaFiles.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstMediaFiles_ItemSelectionChanged);
-            this.lstMediaFiles.SelectedIndexChanged += new System.EventHandler(this.lstMediaFiles_SelectedIndexChanged);
             this.lstMediaFiles.Click += new System.EventHandler(this.lstMediaFiles_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdate.Location = new System.Drawing.Point(11, 404);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(68, 36);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseCompatibleTextRendering = true;
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lblStatus
             // 
@@ -78,18 +62,6 @@
             this.lblStatus.Size = new System.Drawing.Size(73, 13);
             this.lblStatus.TabIndex = 2;
             this.lblStatus.Text = "Not searching";
-            // 
-            // btnStop
-            // 
-            this.btnStop.Enabled = false;
-            this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnStop.Location = new System.Drawing.Point(126, 404);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(75, 36);
-            this.btnStop.TabIndex = 3;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
@@ -104,25 +76,20 @@
             // fielToolStripMenuItem
             // 
             this.fielToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.searchToolStripMenuItem,
+            this.searchTB,
+            this.stopTB,
             this.optionsToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fielToolStripMenuItem.Name = "fielToolStripMenuItem";
             this.fielToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fielToolStripMenuItem.Text = "File";
-            this.fielToolStripMenuItem.Click += new System.EventHandler(this.fielToolStripMenuItem_Click);
             // 
-            // closeToolStripMenuItem
+            // searchTB
             // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.closeToolStripMenuItem.Text = "Close";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.searchToolStripMenuItem.Text = "Search";
+            this.searchTB.Name = "searchTB";
+            this.searchTB.Size = new System.Drawing.Size(152, 22);
+            this.searchTB.Text = "Search";
+            this.searchTB.Click += new System.EventHandler(this.searchTB_Click);
             // 
             // optionsToolStripMenuItem
             // 
@@ -130,18 +97,30 @@
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            // 
+            // stopTB
+            // 
+            this.stopTB.Enabled = false;
+            this.stopTB.Name = "stopTB";
+            this.stopTB.Size = new System.Drawing.Size(152, 22);
+            this.stopTB.Text = "Stop";
+            this.stopTB.Click += new System.EventHandler(this.stopTB_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 448);
-            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lstMediaFiles);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -156,15 +135,14 @@
         #endregion
 
         private System.Windows.Forms.ListView lstMediaFiles;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fielToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchTB;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stopTB;
     }
 }
 

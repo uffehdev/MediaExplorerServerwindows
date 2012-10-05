@@ -33,8 +33,7 @@ namespace MediaExplorerServer
         }
 
         public void EndSearch() {
-            if (searchThread != null)
-            {
+            if (searchThread != null) {
                 statusUpt("Search stopped");
                 searchThread.Abort();
             }
@@ -52,14 +51,10 @@ namespace MediaExplorerServer
 
         public void FindMediaOnComputer() {
             string[] drives = System.Environment.GetLogicalDrives();
-            //string[] drives = new string[] { @"C:\" };
-            foreach (string dr in drives)
-            {
-                if (dr != "Y:\\")
-                {
+            foreach (string dr in drives) {
+                if (dr != "Y:\\") {
                     System.IO.DriveInfo di = new System.IO.DriveInfo(dr);
-                    if (!di.IsReady)
-                    {
+                    if (!di.IsReady) {
                         Console.WriteLine("The drive {0} could not be read", di.Name);
                         continue;
                     }
@@ -93,56 +88,34 @@ namespace MediaExplorerServer
             System.IO.FileInfo[] files = null;
             System.IO.DirectoryInfo[] subDirs = null;
 
-            try
-            {
+            try {
                 files = root.GetFiles("*.*");
-            }
-            catch (UnauthorizedAccessException e)
-            {
+            } catch (UnauthorizedAccessException e) {
                 log.Add(e.Message);
-            }
-            catch (System.IO.DirectoryNotFoundException e)
-            {
+            } catch (System.IO.DirectoryNotFoundException e) {
                 Console.WriteLine(e.Message);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 Console.WriteLine(e.Message);
             }
 
-            if (files != null)
-            {
-                foreach (System.IO.FileInfo fi in files)
-                {
-                    try
-                    {
-                        if (!lstWithFiles.Contains(fi.FullName))
-                        {
-                            if (lstWithFilesTypes.Contains(fi.Extension))
-                            {
+            if (files != null) {
+                foreach (System.IO.FileInfo fi in files) {
+                    try {
+                        if (!lstWithFiles.Contains(fi.FullName)) {
+                            if (lstWithFilesTypes.Contains(fi.Extension)) {
                                 lstWithFiles.Add(fi.FullName);
                                 adder(fi.FullName);
                             }
                         }
-                    }
-                    catch (Exception e)
-                    {
-
+                    } catch (Exception e) {
+                        Console.WriteLine(e.Message);
                     }
                 }
 
                 subDirs = root.GetDirectories();
-                foreach (System.IO.DirectoryInfo dirInfo in subDirs)
-                {
-                    if (dirInfo.Name == "Program Files")
-                    {
-                        bool a = false;
-                    }
-                    if (dirInfo.Name == "Program Files (x86)" || dirInfo.Name == "Program Files" || dirInfo.Name == "Windows")
-                    {
-
-                    }
-                    else { SearchInDirTree(dirInfo); }
+                foreach (System.IO.DirectoryInfo dirInfo in subDirs) {
+                    if (dirInfo.Name == "Program Files (x86)" || dirInfo.Name == "Program Files" || dirInfo.Name == "Windows") {
+                    } else { SearchInDirTree(dirInfo); }
                 }
             }
         }
